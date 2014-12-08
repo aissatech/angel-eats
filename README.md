@@ -5,7 +5,7 @@ Koding hackathon project about food waste
 
 ##Project site: 
 
-uakk44f05490.aissatech.koding.io & https://koding-hack.firebaseapp.com/
+https://uakk44f05490.aissatech.koding.io & https://koding-hack.firebaseapp.com/
 
 ##Google tecnologies: 
 
