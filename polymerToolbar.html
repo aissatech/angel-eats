@@ -1,0 +1,182 @@
+
+<!--
+    @license
+    Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+    This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+    The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+    The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+    Code distributed by Google as part of the polymer project is also
+    subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<!doctype html>
+<html>
+<head>
+  <title>About food</title>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+
+  <link rel="import" href="bower_components/core-icons/core-icons.html">
+  <link rel="import" href="bower_components/font-roboto/roboto.html">
+  <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
+  <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+  <link rel="import" href="bower_components/core-media-query/core-media-query.html">
+  <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+  <link rel="import" href="bower_components/core-pages/core-pages.html">
+  <link rel="import" href="bower_components/paper-dialog/paper-dialog-transition.html">
+  <link rel="import" href="bower_components/paper-dialog/paper-dialog.html">
+  <link rel="import" href="bower_components/paper-button/paper-button.html">
+
+  <style shim-shadowdom>
+
+    body {
+      font-family: RobotoDraft, 'Helvetica Neue', Helvetica, Arial;
+      margin: 0;
+      padding: 24px;
+      color: #333;
+    }
+
+    body.core-narrow {
+      padding: 8px;
+    }
+
+    paper-tabs, core-toolbar {
+      background-color: #d23c0a;/*#00bcd4*/
+      color: #fff;
+      box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    core-toolbar paper-tabs {
+      box-shadow: none;
+    }
+
+    paper-tabs[noink][nobar] paper-tab.core-selected {
+      color: #ffff8d;
+    }
+
+    paper-tabs.transparent-teal {
+      background-color: transparent;
+      color: #00bcd4;
+      box-shadow: none;
+    }
+
+    paper-tabs.transparent-teal::shadow #selectionBar {
+      background-color: #00bcd4;
+    }
+
+    paper-tabs.transparent-teal paper-tab::shadow #ink {
+      color: #00bcd4;
+    }
+
+    h3 {
+      font-size: 16px;
+      font-weight: 400;
+    }
+    paper-icon-button.red {
+      background-color: #643264;
+    }
+
+  </style>
+
+</head>
+<body unresolved>
+
+  <core-toolbar class="medium-tall">
+
+      <!--<paper-icon-button icon="menu"></paper-icon-button>-->
+      <paper-icon-button class="huge" icon="favorite" title="RICH WORLD"></paper-icon-button>
+      <paper-icon-button class="red" icon="favorite" title="poor world"></paper-icon-button>
+      <div flex>Food reality</div>
+      <paper-icon-button icon="search"></paper-icon-button>
+      <paper-icon-button icon="more-vert"></paper-icon-button>
+
+      <div class="bottom fit" horizontal layout>
+
+           <!-- TABS -->
+
+          <paper-tabs selected="0" flex style="max-width: 600px;">
+
+            <!--<paper-tab name="infos" onclick="viewInfos()">Infos</paper-tab>
+            <paper-tab name="photos" onclick="viewPhotos()">Photos</paper-tab>
+            <paper-tab name="videos" onclick="viewVideos()">Videos</paper-tab>-->
+
+            <paper-tab name="infos" onclick="viewInfos()">Infos</paper-tab>
+            <paper-tab name="photos" onclick="viewPhotos()">Photos</paper-tab>
+            <paper-tab name="videos" onclick="viewVideos()">Videos</paper-tab>
+
+            <core-pages><!--  <core-pages flex> -->
+              <p style="color:red;">Infos</p>
+              <p style="color:blu;">Photos</p>
+              <p style="color:green;">Videos</p>
+            </core-pages>
+
+          </paper-tabs>
+      </div>
+      <div>
+
+        <paper-button label="Open dialog" onclick="toggleDialog('paper-dialog-transition-center')"></paper-button>
+          <script>
+            function toggleDialog(transition) {
+              var dialog = document.querySelector('paper-dialog[transition=' + transition + ']');
+              dialog.toggle();
+            }
+          </script>
+
+  </core-toolbar>
+
+        <!--<paper-dialog id="dialog" heading="Dialog" transition="paper-dialog-transition-center">
+          <p>Lorem ipsum dolor sit amet, doming noster at quo, nostrud lucilius rationibus ea duo. Vim no mucius dolores.
+            No bonorum voluptatum vis, has iudicabit consectetuer ne. Nullam sensibus vim id, et quo graeci perpetua.</p>
+          <p>Id qui scripta laboramus dissentiet, verterem partiendo vim at. Stet dissentiet ut mei. Iriure facilis
+            eloquentiam pro eu, nec an esse inciderint. In meliore abhorreant sea. Eros nostro ocurreret at nec. Cu per regione persecuti.</p>
+          <p>Lorem ipsum dolor sit amet, doming noster at quo, nostrud lucilius rationibus ea duo. Vim no mucius dolores.
+            No bonorum voluptatum vis, has iudicabit consectetuer ne. Nullam sensibus vim id, et quo graeci perpetua.</p>
+          <paper-button label="More Info..." dismissive></paper-button>
+          <paper-button label="Decline" affirmative></paper-button>
+          <paper-button label="Accept" affirmative autofocus></paper-button>
+      </paper-dialog>-->
+    </div>
+
+  <!-- detect when window is narrow -->
+  <core-media-query id="mediaQuery" query="max-width: 640px"></core-media-query>
+
+  <script>
+
+    document.querySelector('#mediaQuery').addEventListener('core-media-change',
+      function(e) {
+        document.body.classList.toggle('core-narrow', e.detail.matches);
+        document.querySelector('#scrollableTabs').updateBar();
+      });
+
+      var pages = document.querySelector('core-pages');
+      var tabs = document.querySelector('paper-tabs');
+      tabs.addEventListener('core-select', function() {
+        pages.selected = tabs.selected;
+      });
+
+      function viewInfos(){
+        setTimeout(function() {
+          window.location = "infos.html";
+        },600)
+      }
+
+    function viewPhotos(){
+        setTimeout(function() {
+          window.location = "photos.html";
+        },600)
+      }
+
+
+    function viewVideos(){
+        setTimeout(function() {
+          window.location = "videos.html";
+        },600)
+      }
+
+  </script>
+
+</body>
+</html>

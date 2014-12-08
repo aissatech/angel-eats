@@ -1,0 +1,74 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/font-roboto/roboto.html">
+<link rel="import" href="../bower_components/google-singin/google-singin.html">
+
+
+<polymer-element name="polymer-login">
+
+  <template>
+    <style>
+      #paper_input_username {
+        left: 650px;
+        top: 200px;
+        position: absolute;
+      }
+      #paper_input_password {
+        left: 650px;
+        top: 280px;
+        position: absolute;
+      }
+      #paper_button_login {
+        left: 690px;
+        top: 380px;
+        position: absolute;
+      }
+    </style>
+    <link rel="stylesheet" href="../bower_components/google-singin/google-signin.css" >
+
+
+    This is <b>{{ owner }}</b>'s polymer-login element. <br>
+	  <h1 id="">{{ pagetitle }}</h1>
+	  Hello <div id="firstName">{{ firstName }}</div>
+    <div id="lastname">{{ lastName }}</div>
+	  <paper-input label="FirstName" id="paper_input_firstName" layout vertical></paper-input>
+	  <paper-input label="LastName" id="paper_input_lastame" layout vertical></paper-input>
+    <paper-input label="Username" willvalidate validationmessage="Username is required!" required id="paper_input_username" layout vertical></paper-input>
+    <paper-input label="Password" willvalidate validationmessage="Password is required!" required id="paper_input_password" layout vertical></paper-input>
+    <paper-button label="Login" id="paper_button_login">Login</paper-button>
+
+    <google-signin labelSignin="Sign in with Google" clientId="493669669216-cul08p626610o8mvn1eilipah3uu7ote.apps.googleusercontent.com"></google-signin>
+  </template>
+
+  <script>
+
+
+    (function() {
+      // these variables are shared by all instances of app-globals
+      //var firstName = 'John';
+      //var lastName = 'Smith';
+      var firstName = $('paper_input_username').val();
+      var lastName = $('paper_input_username').val();
+      alert(firstName + ", " + lastName)
+      //var lastName = document.querySelector('polymer-login').firstName;
+      //var lastName = document.querySelector('polymer-login').lastName;
+
+      Polymer('polymer-login', {
+         ready: function() {
+           this.owner = 'Camelia Boban';
+           this.pagetitle = 'Login Page';
+           this.email = 'camelia.boban@gmail.com';
+           this.pwd = 'aissatech13';
+           // copy global values into instance properties
+           this.firstName = firstName;
+           this.lastName = lastName;
+         }
+      });
+    })();
+
+
+  </script>
+
+</polymer-element>
+

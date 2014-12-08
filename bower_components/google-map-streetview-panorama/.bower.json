@@ -1,0 +1,25 @@
+{
+  "name": "google-map-streetview-panorama",
+  "version": "0.0.1",
+  "keywords": [
+    "google-maps",
+    "streetview",
+    "web-components",
+    "polymer"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.2.3",
+    "google-map": "PolymerLabs/google-map#~0.2.3"
+  },
+  "homepage": "https://github.com/GoogleWebComponents/google-streetview-pano",
+  "_release": "0.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.1",
+    "commit": "d1b68f8d67dc4c997f976f347527917bb091dd07"
+  },
+  "_source": "git://github.com/GoogleWebComponents/google-streetview-pano.git",
+  "_target": "~0.0.1",
+  "_originalSource": "GoogleWebComponents/google-streetview-pano",
+  "_direct": true
+}

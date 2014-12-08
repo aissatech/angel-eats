@@ -1,0 +1,69 @@
+<!doctype html>
+<html ng-app>
+<head>
+<meta charset="utf-8">
+<title>Persons list</title>
+<link rel="stylesheet" href="css/style.css">
+<!--<script src="bower_components/angular/angular.min.js"></script>-->
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
+<script src="js/app.js"></script>
+</head>
+
+<body ng-controller="PersListCtrl">
+
+<ul>
+  <li ng-repeat="person in persons">
+    <p>
+    {{person.username + " " + person.name}}
+    </p>
+  </li>
+</ul>
+
+
+<script>
+//persons
+/*function PersListCtrl($scope) {
+  $scope.persons = [
+     {
+  		"username" : "etrip",
+  		"name": "Enrico Tripaldi",
+  		"sex" : "M",
+  		"age" : 27,
+  		"height" : 1.70,
+  		"weight": 70,
+  		"disease" :  [{"code": "E06.3", "description": "Chronic thyroiditis (Hashimoto)"}, {"code": "E14", "description": "Diabetes mellitus"}]
+  	},
+  	{
+  		"username" : "equa",
+  		"name": "Erica Quaranta",
+  		"sex" : "F",
+  		"age" : 54,
+  		"height" : 75,
+  		"weight" : 1.68,
+  		"disease" :  [{"code": "I15", "description": "Secondary hypertension"}]
+  	},
+  	{
+  		"username" : "pvalt",
+  		"name": "Pietro Valtieri",
+  		"sex" : "M",
+  		"age" : 71,
+  		"height" : 82,
+  		"weight" : 1.83,
+  		"disease" : [{"code": "E14", "description": "Diabetes mellitus"}]
+  	},
+  	{
+  		"username" : "mrossi",
+  		"name": "Margherita Rossi",
+  		"sex" : "F",
+  		"age" : 44,
+  		"height" : 1.70,
+  		"weight" : 56,
+  		"disease" :  [{"code": "E06.3", "description": "Chronic thyroiditis (Hashimoto)"}, {"code": "E66", "description": "Obesity"}]
+  	}
+  ];
+}*/
+</script>
+
+</body>
+</html>
+

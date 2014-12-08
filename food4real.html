@@ -1,0 +1,174 @@
+
+<!doctype html>
+
+<html>
+  <head>
+    <title>JSWebAppPolymer</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <script src="bower_components/platform/platform.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+
+    <link rel="import" href="bower_components/font-roboto/roboto.html">
+
+    <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+    <link rel="import" href="bower_components/core-pages/core-pages.html">
+    <link rel="import" href="bower_components/core-list/core-list.html">
+    <link rel="import" href="bower_components/paper-menu-button/paper-menu-button.html">
+    <link rel="import" href="bower_components/paper-item/paper-item.html">
+    <link rel="import" href="bower_components/paper-fab/paper-fab.html">
+    <link rel="import" href="bower_components/paper-checkbox/paper-checkbox.html">
+    <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
+    <link rel="import" href="bower_components/paper-tabs/paper-tab.html">
+    <link rel="import" href="bower_components/paper-button/paper-button.html">
+    <link rel="import" href="bower_components/paper-toast/paper-toast.html">
+    <link rel="import" href="bower_components/core-icons/core-icons.html">
+    <link rel="import" href="bower_components/paper-dialog/paper-dialog-transition.html">
+    <link rel="import" href="bower_components/paper-dialog/paper-dialog.html">
+    <!--<link rel="import" href="../paper-icon-button/paper-icon-button.html">
+    <link rel="import" href="../core-menu/core-menu.html">
+    <link rel="stylesheet" href="core-menu.css" shim-shadowdom>
+    <link rel="stylesheet" href="styles.css">-->
+
+    <style shim-shadowdom>
+
+    body {
+      font-family: RobotoDraft, 'Helvetica Neue', Helvetica, Arial;
+      margin: 0;
+      padding: 24px;
+      color: #333;
+    }
+
+    body.core-narrow {
+      padding: 8px;
+    }
+
+    paper-tabs, core-toolbar {
+      background-color: #d23c0a;/*#00bcd4*/
+      color: #fff;
+      box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    core-toolbar paper-tabs {
+      box-shadow: none;
+    }
+
+    paper-tabs[noink][nobar] paper-tab.core-selected {
+      color: #ffff8d;
+    }
+
+    paper-tabs.transparent-teal {
+      background-color: transparent;
+      color: #00bcd4;
+      box-shadow: none;
+    }
+
+    paper-tabs.transparent-teal::shadow #selectionBar {
+      background-color: #00bcd4;
+    }
+
+    paper-tabs.transparent-teal paper-tab::shadow #ink {
+      color: #00bcd4;
+    }
+
+    h3 {
+      font-size: 16px;
+      font-weight: 400;
+    }
+    paper-icon-button.red {
+      background-color: #643264;
+    }
+
+  </style>
+  </head>
+
+  <body unresolved>
+
+    <!-- TOOLBAR & MENU SECTION -->
+    <section>
+      <core-toolbar>
+             <paper-icon-button class="huge" icon="favorite" title="RICH WORLD" onclicK="viewRich();"></paper-icon-button>
+            <paper-icon-button class="red" icon="favorite" title="poor world" onclicK="viewPoor();"></paper-icon-button>
+        <span flex>Food, water, poverty. Is emergency!</span>
+        <!-- FAB -->
+        <paper-fab icon="add" onclick="alert('We didnt make it like we aimed to! But we enjoyed ourselves like crazy!');"></paper-fab>
+      </core-toolbar>
+    </section>
+
+    <!-- TABS SECTION -->
+    <section>
+      <paper-tabs>
+        <paper-tab>Syrian refugees</paper-tab>
+        <paper-tab>FAO</paper-tab>
+        <paper-tab>Unicef</paper-tab>
+      </paper-tabs>
+      <core-pages flex>
+        <p style="color:red;"><img src="http://aissatechnologies.com/gedinc/img/siria.png"></p>
+        <p style="color:blue"><img src="http://aissatechnologies.com/gedinc/img/fao.png"></p>
+        <p style="color:green"><img src="http://aissatechnologies.com/gedinc/img/unicef.png"></p>
+      </core-pages>
+
+      <script>
+        var pages = document.querySelector('core-pages');
+        var tabs = document.querySelector('paper-tabs');
+        tabs.addEventListener('core-select', function() {
+          pages.selected = tabs.selected;
+        });
+      </script>
+    </section>
+
+    <br>
+
+    <!-- DIALOG SECTION -->
+    <!--<section>
+      <paper-button label="Open dialog" onclick="toggleDialog('paper-dialog-transition-center')"></paper-button>
+        <script>
+          function toggleDialog(transition) {
+            var dialog = document.querySelector('paper-dialog[transition=' + transition + ']');
+            dialog.toggle();
+          }
+        </script>
+      <paper-dialog heading="Dialog" transition="paper-dialog-transition-center">
+          <p>Lorem ipsum dolor sit amet, doming noster at quo, nostrud lucilius rationibus ea duo. Vim no mucius dolores.
+            No bonorum voluptatum vis, has iudicabit consectetuer ne. Nullam sensibus vim id, et quo graeci perpetua.</p>
+          <p>Id qui scripta laboramus dissentiet, verterem partiendo vim at. Stet dissentiet ut mei. Iriure facilis
+            eloquentiam pro eu, nec an esse inciderint. In meliore abhorreant sea. Eros nostro ocurreret at nec. Cu per regione persecuti.</p>
+          <p>Lorem ipsum dolor sit amet, doming noster at quo, nostrud lucilius rationibus ea duo. Vim no mucius dolores.
+            No bonorum voluptatum vis, has iudicabit consectetuer ne. Nullam sensibus vim id, et quo graeci perpetua.</p>
+          <paper-button label="More Info..." dismissive></paper-button>
+          <paper-button label="Decline" affirmative></paper-button>
+          <paper-button label="Accept" affirmative autofocus></paper-button>
+      </paper-dialog>
+    </section>-->
+
+    <!-- TOAST SECTION -->
+    <!--<section>
+      <paper-button raisedButton right label="Show Toast"
+          onclick="document.querySelector('#toast1').show()">
+      </paper-button>
+      <paper-toast id="toast1" text="A sample toast here."></paper-toast>
+    </section>-->
+
+    <!--<a href="welcome.html">Attempts</a>-->
+
+      <script>
+
+    function viewRich(){
+        setTimeout(function() {
+          window.location = "richPage.html";
+        },600)
+      }
+
+      function viewPoor(){
+        setTimeout(function() {
+          window.location = "poorPage.html";
+        },600)
+      }
+  </script>
+  </body>
+
+</html>

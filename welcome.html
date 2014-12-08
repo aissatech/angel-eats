@@ -1,0 +1,96 @@
+<html ng-app data-framework="firebase">
+  <head>
+    <script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/0.9.0/angularfire.min.js"></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+
+    <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
+    <!--<script src="bower_components/angularfire/angularfire.js"></script>-->
+    <script src="bower_components/polymer/polymer.html"></script>
+    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+    <link rel="import" href="bower_components/font-roboto/roboto.html">
+    <link rel="import" href="bower_components/paper-slider/paper-slider.html">
+    <link rel="import" href="bower_components/paper-radio-button/paper-radio-button.html">
+
+    <style type="text/css">
+       @import url('css/style.css');
+    </style>
+  </head>
+<body style="background-image: url(http://aissatechnologies.com/gedinc/img/bodyGedinc95.png);">
+
+  <p id="personName"></p>
+    <div id="measuresDiv">
+      <h1>Insert your data</h1>
+      <input type='text' id='sexInput' placeholder='Sex'>
+      <input type='text' id='ageInput' placeholder='Age'>
+      <input type='text' id='heightInput' placeholder='Height'>
+      <input type='text' id='weightInput' placeholder='Weight'>
+    </div>
+    <hr/>
+    <div id="optWeight" name="optWeight"></div>
+
+    <section class="green-slider">
+        <div center horizontal layout>
+          <div>Age</div>
+          <paper-slider id="age-slider" pin value="50" max="100" editable></paper-slider>
+        </div>
+
+        <div center horizontal layout>
+          <div>Height</div>
+          <paper-slider id="height-slider" pin value="50" max="200" editable></paper-slider>
+        </div>
+
+        <div center horizontal layout>
+          <div>Weight</div>
+          <paper-slider id="weight-slider" pin value="50" max="200" editable></paper-slider>
+        </div>
+    </section>
+
+    <section class="blue-radio">
+      <h4>Sex</h4>
+      <paper-radio-group selected="sex">
+        <paper-radio-button name="F" label="Female"></paper-radio-button>
+        <paper-radio-button name="M" label="Male"></paper-radio-button>
+      </paper-radio-group>
+    </section>
+    <hr>
+
+	<table id="linkPages">
+		<tr>
+			<td>
+				<a href="foods.html">Foods</a>
+			</td>
+			<td>&nbsp;</td>
+			<td>
+				<a href="selection.html">Selection</a>
+			</td>
+			<td>&nbsp;</td>
+			<td>
+				<a href="eats.html">Eats</a>
+			</td>
+			<td>&nbsp;</td>
+			<td>
+				<a href="persons.html">Persons</a>
+			</td>
+			<td>&nbsp;</td>
+			<td>
+				<a href="recepies.html">Recepies</a>
+			</td>
+			<td>&nbsp;</td>
+			<td>
+				<a href="foodWaste.html">Waste</a>
+			</td>
+			<td>&nbsp;</td>
+			<td>
+				<a href="povertySlider.html">Poverty</a>
+			</td>
+			<td>&nbsp;</td>
+			<td>
+				<a href="food4real.html">Food4Real</a>
+			</td>
+		</tr>
+	</table>
+  </body>
+</html>
+
+

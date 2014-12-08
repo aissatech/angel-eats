@@ -1,0 +1,203 @@
+
+<!--
+    @license
+    Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+    This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+    The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+    The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+    Code distributed by Google as part of the polymer project is also
+    subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<!doctype html>
+<html>
+<head>
+  <title>World of poverty</title>
+
+  <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+  <link href="bower_components/core-animated-pages/core-animated-pages.html" rel="import">
+
+
+  <style>
+    body {
+      font-family: 'Roboto 2', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      margin: 0;
+      background: #f1f1f1;
+    }
+
+    .gray {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 350px;
+      background: #B2B2B2;
+    }
+  </style>
+</head>
+<body>
+
+  <polymer-element name="poor-world">
+  <template>
+
+    <style>
+      .chip-container {
+        position: absolute;
+        top: 275px;
+        right: 0;
+        left: 0;
+        text-align: center;
+      }
+
+      .chip {
+        display: inline-block;
+        position: relative;
+        border-radius: 3px;
+        margin: 4px;
+        overflow: hidden;
+        text-align: start;
+        background-color: #fff;
+        box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16);
+      }
+
+      .chip-top {
+        width: 200px;
+        height: 200px;
+      }
+
+      .chip-bottom {
+        padding: 8px;
+        line-height: 1.5;
+      }
+
+      .chip-album-title {
+        font-weight: bold;
+      }
+
+      #details {
+        padding: 200px 10% 0;
+      }
+
+      .card {
+        height: 400px;
+        border-radius: 3px;
+        text-align: start;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      }
+
+      .card-left {
+        width: 400px;
+      }
+
+      .card-right {
+        padding: 24px;
+      }
+
+      .card-icon {
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        margin-right: 16px;
+      }
+
+      .card-album-title {
+        font-size: 2em;
+      }
+
+      .back{
+        margin-left:-100px;
+        width: 42px;
+        /*margin-top: 700px;*/
+      }
+    </style>
+
+    <core-animated-pages selected="{{page}}" transitions="hero-transition" on-core-animated-pages-transition-end="{{complete}}">
+
+      <section>
+
+        <div class="chip-container" hero-p on-tap="{{transition}}">
+
+          <template repeat="{{items as item}}">
+
+            <div class="chip" hero-id="{{item.artist}}-{{item.album}}" hero?="{{selectedAlbum === item }}">
+              <div class="chip-top" style="background:{{item.color}};" hero-id="{{item.artist}}-{{item.album}}-art" hero?="{{selectedAlbum === item}}"></div>
+              <div class="chip-bottom">
+                <div class="chip-album-title">{{item.album}}</div>
+                <div class="chip-artist">{{item.artist}}</div>
+              </div>
+            </div>
+
+          </template>
+
+        </div>
+      </section>
+
+      <section id="details">
+
+        <div class="card" layout horizontal hero-id="{{selectedAlbum.artist}}-{{selectedAlbum.album}}" hero on-tap="{{transition}}">
+          <div class="card-left" style="background:{{selectedAlbum.color}};" hero-id="{{selectedAlbum.artist}}-{{selectedAlbum.album}}-art" hero></div>
+          <div class="card-right" flex>
+            <div layout horizontal center>
+              <div>
+                <div class="card-icon" style="background:{{selectedAlbum.color}};"></div>
+              </div>
+              <div flex>
+                <div class="card-album-title">{{selectedAlbum.album}}</div>
+                <div class="card-album-artist">{{selectedAlbum.artist}}</div>
+                <div>
+                  <p height="50px"></p>
+                  <span>
+Over 100 million tonnes of food are wasted annually in the EU (2014 estimate). If nothing is done, food waste is expected to rise to about 126 million tonnes by 2020.
+Wasting food is not only an ethical and economic issue but it also depletes the environment of limited natural resources.
+All actors in the food chain have a role to play in preventing and reducing food waste, from those who produce and process foods (farmers, food manufacturers and processors) to those who make foods available for consumption (hospitality sector, retailers) and ultimately consumers themselves
+The central goal of EU food safety policy is to protect both human and animal health. We cannot compromise on these standards but, in co-operation with Member States and stakeholders, are looking for every opportunity to prevent food waste and strengthen sustainability of the food system.
+This website provides information on EU actions to tackle food waste, a repository of good practices in food waste prevention, communications materials to help raise awareness and a food waste resources library.
+<p>Font: <a href="http://ec.europa.eu/food/safety/food_waste/index_en.htm">European Commission</a></p>
+</div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </core-animated-pages>
+
+  </template>
+
+  <script>
+
+    Polymer('poor-world', {
+
+      page: 0,
+
+      items: [
+        { artist: 'Excessive resources', album: 'Malnutrition', color: '#967117' },
+        { artist: 'No access to safe water', album: 'Water', color: '#2F4F4F' },
+        { artist: 'Health & education', album: 'Vaccinations', color: '#CADABA' },
+        { artist: 'Rich vs poor', album: 'Inequality', color: '#465945' }
+      ],
+
+      selectedAlbum: null,
+
+      transition: function(e) {
+        if (this.page === 0 && e.target.templateInstance.model.item) {
+          this.selectedAlbum = e.target.templateInstance.model.item;
+          this.page = 1;
+        } else {
+          this.page = 0;
+        }
+      }
+    });
+
+  </script>
+  </polymer-element>
+
+  <div class="gray"><img class="back" onclick="window.history.back();" src="http://aissatechnologies.com/gedinc/img/back.png" /></div>
+
+  <poor-world></poor-world>
+
+</body>
+</html>

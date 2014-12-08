@@ -1,0 +1,30 @@
+<html ng-app>
+  <head>
+    <script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
+    <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/0.9.0/angularfire.min.js"></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script src="bower_components/polymer/polymer.html"></script>
+    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+    <link rel="import" href="bower_components/font-roboto/roboto.html">
+    <link rel="import" href="bower_components/paper-slider/paper-slider.html">
+    <link rel="import" href="bower_components/paper-radio-button/<paper-radio-button.html">
+    <script src="http://platform.fatsecret.com/js?key=189d49a3cbeb417d9a52530c1b75d5b4"></script>
+    <script src="http://platform.fatsecret.com/js?key=189d49a3cbeb417d9a52530c1b75d5b4&auto_load=true"></script>
+
+    <style type="text/css">
+       @import url('css/style.css');
+    </style>
+  </head>
+<body ng-controller="myController">
+
+     <script>
+
+    //ref to data store
+    var dbRef = new Firebase('https://koding-hack.firebaseio.com/');
+    dbRef.child('users/etrip');
+
+    </script>
+
+  </body>
+</html>

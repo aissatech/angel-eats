@@ -1,0 +1,88 @@
+/* index */
+
+/*#username {
+	background-image: url("img/icons/user.png");
+	background-repeat: no-repeat;
+	background-position: 5px center;
+	padding-left: 30px;
+}
+
+#password {
+	background-image: url("img/icons/pwd.png");
+	background-repeat: no-repeat;
+	background-position: 5px center;
+	padding-left: 30px;
+}
+
+#sfondo {
+  background-image: url("img/sfondo_D4D.jpg");
+}
+#tabsf {
+  padding-top:70px;
+  padding-left:170px;
+}*/
+
+
+/* welcome */
+body {
+  font-family: roboto;
+  font-weight: bold;
+}
+
+div#measuresDiv {
+  padding-top:200px;
+  padding-left: 450px;
+}
+
+table#login {
+  valign: center;
+}
+
+h1 {
+  valign: middle;
+  color: #643264;
+}
+
+/* slider */
+age-slider {
+  width: 50%;
+}
+height-slider {
+  width: 50%;
+}
+weight-slider {
+  width: 50%;
+}
+
+.green-slider {
+
+  padding-left: 600px;
+}
+
+.green-slider paper-slider::shadow #sliderKnobInner,
+.green-slider paper-slider::shadow #sliderKnobInner::before,
+.green-slider paper-slider::shadow #sliderBar::shadow #activeProgress {
+  background-color: #0f9d58;
+}
+
+.blue-radio {
+  padding-left: 700px;
+}
+
+/* radio button sex */
+paper-radio-button::shadow #onRadio {
+  background-color: #4285f4;
+}
+
+paper-radio-button::shadow #ink {
+  color: #b5b5b5;
+}
+
+paper-radio-button::shadow #offRadio {
+  border-color: #b5b5b5;
+}
+
+#linkPages {
+  padding-top:100px;
+  padding-left:50px;
+}

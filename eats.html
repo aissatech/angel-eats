@@ -1,0 +1,66 @@
+<html ng-app data-framework="firebase">
+  <head>
+    <title>Eats</title>
+    <script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
+    <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/0.9.0/angularfire.min.js"></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+
+    <style>
+        body {
+            background-image: url('http://aissatechnologies.com/gedinc/img/schermata_dieta.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+        }
+    </style>
+  </head>
+
+
+  <body>
+
+    <!-- iterate $asArray() data -->
+      <li ng-repeat="item in list">{{ item|json }}</li>
+
+      <p>{{record.$id}}: {{ record.name }}</p>
+
+    <script>
+
+    var ref = new Firebase("https://koding-hack.firebaseio.com/eats");
+    var sync = $firebase(ref);
+
+
+      //Returns a synchronized array.
+      app.controller("EatsCtrl", ["$scope", "$firebase",
+        function($scope, $firebase) {
+          var sync = $firebase(ref);
+
+          var list = sync.$asArray();
+          list.$loaded().then(function() {
+            console.log("list has " + list.length + " item(s)");
+          });
+
+          // we can add it directly to $scope if we want to access this from the DOM
+          $scope.list = list;
+        }
+      ]);
+
+      //Returns a synchronized object.
+      app.controller("EatsCtrl", ["$scope", "$firebase",
+        function($scope, $firebase) {
+            var sync = $firebase(ref);
+
+            var record = sync.$asObject();
+            record.$loaded().then(function() {
+              console.log("record ID:", record.$id);
+            });
+
+            // we can add it directly to $scope if we want to access this from the DOM
+            $scope.record = record;
+        }
+      ]);
+
+
+    </script>
+  </body>
+</html>

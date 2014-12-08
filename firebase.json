@@ -1,0 +1,9 @@
+{
+  "firebase": "koding-hack",
+  "public": ".",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

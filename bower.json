@@ -1,0 +1,32 @@
+{
+  "name": "Angel Eats on Koding Hackathon",
+  "version": "0.1.0",
+  "authors": [
+    "Camelia Boban <info@aissatechnologies.com>"
+  ],
+  "description": "Nutritional Polymer and Firebase webapp",
+  "main": "index.html",
+  "keywords": [
+    "polymer",
+    "material",
+    "design",
+    "nutrition",
+    "firebase",
+    "angular"
+  ],
+  "license": "MIT",
+  "homepage": "https://koding-hack.firebaseapp.com/",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.5.1",
+    "paper-input": "Polymer/paper-input#~0.5.1",
+    "angularfire": "~0.9.0"
+  }
+}

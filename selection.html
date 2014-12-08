@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src='http://www.polymer-project.org/components/platform/platform.js'></script>
+  <link rel='import' href='http://www.polymer-project.org/components/paper-radio-group/paper-radio-group.html'>
+</head>
+
+<body unresolved>
+
+  <polymer-element name="my-app">
+    <template>
+      <paper-radio-group selected="{{selection}}">
+        <paper-radio-button name="small" label="Small"></paper-radio-button>
+        <paper-radio-button name="medium" label="Medium"></paper-radio-button>
+        <paper-radio-button name="large" label="Large"></paper-radio-button>
+      </paper-radio-group>
+    </template>
+    <script>
+      Polymer('my-app', {
+        created: function () {
+          this.selection = "medium"
+        },
+        selectionChanged: function () {
+          console.log(this.selection);
+        }
+      });
+    </script>
+  </polymer-element>
+
+  <my-app></my-app>
+
+</body>
+</html>

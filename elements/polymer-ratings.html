@@ -1,0 +1,71 @@
+<script src="../bower_components/webcomponentsjs/webcomponents.min.js"></script>
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-slider/paper-slider.html">
+<link rel="import" href="../bower_components/font-roboto/roboto.html">
+
+
+<polymer-element name="polymer-ratings">
+
+  <template>
+   <style shim-shadowdom>
+
+    body {
+      font-family: RobotoDraft, 'Helvetica Neue', Helvetica, Arial;
+      margin: 0;
+      padding: 24px;
+    }
+
+    paper-slider {
+      width: 100%;
+    }
+
+    section {
+      max-width: 1000px;
+      padding: 20px 0;
+      background-color: #f0f0f0;
+    }
+
+    section > div {
+      padding: 14px;
+    }
+
+    .yellow-slider paper-slider::shadow #sliderKnobInner,
+    .yellow-slider paper-slider::shadow #sliderBar::shadow #activeProgress {
+      background-color: #f4b400;
+    }
+
+    .green-slider paper-slider::shadow #sliderKnobInner,
+    .green-slider paper-slider::shadow #sliderKnobInner::before,
+    .green-slider paper-slider::shadow #sliderBar::shadow #activeProgress {
+      background-color: #0f9d58;
+    }
+
+    #ratingsLabel {
+      padding-left: 12px;
+      color: #a0a0a0;
+    }
+
+  </style>
+
+    <section class="green-slider">
+      <div>
+        <span>Ratings</span><span id="ratingsLabel"></span>
+      </div>
+      <br>
+      <paper-slider id="ratings" pin snaps max="10" step="1" value="5"></paper-slider>
+
+    </section>
+
+
+  </template>
+
+    <script>
+
+    var ratings = document.querySelector('#ratings');
+    ratings.addEventListener('core-change', function() {
+      document.querySelector('#ratingsLabel').textContent = ratings.value;
+    });
+
+  </script>
+</polymer-element>
+
