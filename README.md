@@ -18,7 +18,7 @@ https://uakk44f05490.aissatech.koding.io & https://koding-hack.firebaseapp.com/
 
 ###Google tecnologies: 
 
-Firebase, Angular & Angular Fire, Polymer (Material Design).
+Firebase, Angular & Angular Fire, Polymer (Material Design), IDE: Chrome Dev Editor.
 
 ###Slides
 
