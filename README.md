@@ -5,7 +5,9 @@ Angel Eats
 
 ##Project site: 
 
-https://uakk44f05490.aissatech.koding.io & https://koding-hack.firebaseapp.com/
+https://uakk44f05490.aissatech.koding.io 
+
+For problems with the VM on updatinh the files, the site has a better view here: https://koding-hack.firebaseapp.com/
 
 | ![aissatech](https://github.com/aissatech/angel-eats/blob/master/img/screenshots/1.png) 
 | ![aissatech](https://github.com/aissatech/angel-eats/blob/master/img/screenshots/2.png)
