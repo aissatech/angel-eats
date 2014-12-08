@@ -1,7 +1,7 @@
 Angel Eats
 ==========
 
-2014 @ Koding global virtual hackathon (6-7-8 dicember) project about food waste
+2014 @ Koding's Global Virtual Hackathon (6-7-8 dicember) project about food waste
 
 ##Project site: 
 
