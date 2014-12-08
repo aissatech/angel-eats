@@ -16,19 +16,19 @@ https://uakk44f05490.aissatech.koding.io & https://koding-hack.firebaseapp.com/
 | ![aissatech](https://github.com/aissatech/angel-eats/blob/master/img/screenshots/8.png)
 | ![aissatech](https://github.com/aissatech/angel-eats/blob/master/img/screenshots/9.png) 
 
-##Google tecnologies: 
+###Google tecnologies: 
 
 Firebase, Angular & Angular Fire, Polymer (Material Design).
 
-##Slides
+###Slides
 
 https://github.com/aissatech/angel-eats/tree/master/slides
 
-##Team
+###Team
 
 https://github.com/koding/global.hackathon/blob/master/Teams/Angel%20Eats/ABOUT.md
 
-##Twitter @AngelEatsRome
+####Twitter @AngelEatsRome
 
 ==========
 
