@@ -28,6 +28,8 @@ https://github.com/aissatech/angel-eats/tree/master/slides
 
 https://github.com/koding/global.hackathon/blob/master/Teams/Angel%20Eats/ABOUT.md
 
+##Twitter @AngelEatsRome
+
 ==========
 
 More than a file is an attempt, more than a lib is useless
