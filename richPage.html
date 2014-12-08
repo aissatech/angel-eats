@@ -15,6 +15,7 @@
 
   <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
   <link href="bower_components/core-animated-pages/core-animated-pages.html" rel="import">
+  <!--<link href="https://www.polymer-project.org/components/core-animated-pages/core-animated-pages.html" rel="import">-->
 
   <style>
     body {
@@ -68,7 +69,7 @@
         line-height: 1.5;
       }
 
-      .chip-album-title {
+      .chip-effect-title {
         font-weight: bold;
       }
 
@@ -100,7 +101,7 @@
         margin-right: 16px;
       }
 
-      .card-album-title {
+      .card-effect-title {
         font-size: 2em;
       }
       .back{
@@ -117,11 +118,11 @@
 
           <template repeat="{{items as item}}">
 
-            <div class="chip" hero-id="{{item.artist}}-{{item.album}}" hero?="{{selectedAlbum === item }}">
-              <div class="chip-top" style="background:{{item.color}};" hero-id="{{item.artist}}-{{item.album}}-art" hero?="{{selectedAlbum === item}}"></div>
+            <div class="chip" hero-id="{{item.cause}}-{{item.effect}}" hero?="{{selectedEffect === item }}">
+              <div class="chip-top" style="background:{{item.color}};" hero-id="{{item.cause}}-{{item.effect}}-art" hero?="{{selectedEffect === item}}"></div>
               <div class="chip-bottom">
-                <div class="chip-album-title">{{item.album}}</div>
-                <div class="chip-artist">{{item.artist}}</div>
+                <div class="chip-effect-title">{{item.effect}}</div>
+                <div class="chip-cause">{{item.cause}}</div>
               </div>
             </div>
 
@@ -132,16 +133,16 @@
 
       <section id="details">
 
-        <div class="card" layout horizontal hero-id="{{selectedAlbum.artist}}-{{selectedAlbum.album}}" hero on-tap="{{transition}}">
-          <div class="card-left" style="background:{{selectedAlbum.color}};" hero-id="{{selectedAlbum.artist}}-{{selectedAlbum.album}}-art" hero></div>
+        <div class="card" layout horizontal hero-id="{{selectedEffect.cause}}-{{selectedEffect.effect}}" hero on-tap="{{transition}}">
+          <div class="card-left" style="background:{{selectedEffect.color}};" hero-id="{{selectedEffect.cause}}-{{selectedEffect.effect}}-art" hero></div>
           <div class="card-right" flex>
             <div layout horizontal center>
               <div>
-                <div class="card-icon" style="background:{{selectedAlbum.color}};"></div>
+                <div class="card-icon" style="background:{{selectedEffect.color}};"></div>
               </div>
               <div flex>
-                <div class="card-album-title">{{selectedAlbum.album}}</div>
-                <div class="card-album-artist">{{selectedAlbum.artist}}</div>
+                <div class="card-effect-title">{{selectedEffect.effect}}</div>
+                <div class="card-effect-cause">{{selectedEffect.cause}}</div>
                 <div>
                   <p height="20px"></p>
                   <span>Why resources are under pressure
@@ -169,17 +170,17 @@ Non-equitable distribution of resources.</span>
       page: 0,
 
       items: [
-        { artist: 'Excessive resources', album: 'Ecology', color: '#008200' },
-        { artist: 'Food waste', album: 'Waste', color: '#821446' },
-        { artist: 'Ossesive diets', album: 'Diet', color: '#d2c828' },
-        { artist: 'Obesity & diseases', album: 'Obesity', color: '#006464' }
+        { cause: 'Excessive resources', effect: 'Ecology', color: '#008200' },
+        { cause: 'Food waste', effect: 'Waste', color: '#821446' },
+        { cause: 'Ossesive diets', effect: 'Diet', color: '#d2c828' },
+        { cause: 'Obesity & diseases', effect: 'Obesity', color: '#006464' }
       ],
 
-      selectedAlbum: null,
+      selectedEffect: null,
 
       transition: function(e) {
         if (this.page === 0 && e.target.templateInstance.model.item) {
-          this.selectedAlbum = e.target.templateInstance.model.item;
+          this.selectedEffect = e.target.templateInstance.model.item;
           this.page = 1;
         } else {
           this.page = 0;

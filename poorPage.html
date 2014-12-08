@@ -15,7 +15,7 @@
 
   <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
   <link href="bower_components/core-animated-pages/core-animated-pages.html" rel="import">
-
+  <!--<link href="https://www.polymer-project.org/components/core-animated-pages/core-animated-pages.html" rel="import">-->
 
   <style>
     body {
@@ -69,7 +69,7 @@
         line-height: 1.5;
       }
 
-      .chip-album-title {
+      .chip-effect-title {
         font-weight: bold;
       }
 
@@ -101,14 +101,12 @@
         margin-right: 16px;
       }
 
-      .card-album-title {
+      .card-effect-title {
         font-size: 2em;
       }
-
       .back{
         margin-left:-100px;
         width: 42px;
-        /*margin-top: 700px;*/
       }
     </style>
 
@@ -120,11 +118,11 @@
 
           <template repeat="{{items as item}}">
 
-            <div class="chip" hero-id="{{item.artist}}-{{item.album}}" hero?="{{selectedAlbum === item }}">
-              <div class="chip-top" style="background:{{item.color}};" hero-id="{{item.artist}}-{{item.album}}-art" hero?="{{selectedAlbum === item}}"></div>
+            <div class="chip" hero-id="{{item.cause}}-{{item.effect}}" hero?="{{selectedEffect === item }}">
+              <div class="chip-top" style="background:{{item.color}};" hero-id="{{item.cause}}-{{item.effect}}-art" hero?="{{selectedEffect === item}}"></div>
               <div class="chip-bottom">
-                <div class="chip-album-title">{{item.album}}</div>
-                <div class="chip-artist">{{item.artist}}</div>
+                <div class="chip-effect-title">{{item.effect}}</div>
+                <div class="chip-cause">{{item.cause}}</div>
               </div>
             </div>
 
@@ -135,27 +133,25 @@
 
       <section id="details">
 
-        <div class="card" layout horizontal hero-id="{{selectedAlbum.artist}}-{{selectedAlbum.album}}" hero on-tap="{{transition}}">
-          <div class="card-left" style="background:{{selectedAlbum.color}};" hero-id="{{selectedAlbum.artist}}-{{selectedAlbum.album}}-art" hero></div>
+        <div class="card" layout horizontal hero-id="{{selectedEffect.cause}}-{{selectedEffect.effect}}" hero on-tap="{{transition}}">
+          <div class="card-left" style="background:{{selectedEffect.color}};" hero-id="{{selectedEffect.cause}}-{{selectedEffect.effect}}-art" hero></div>
           <div class="card-right" flex>
             <div layout horizontal center>
               <div>
-                <div class="card-icon" style="background:{{selectedAlbum.color}};"></div>
+                <div class="card-icon" style="background:{{selectedEffect.color}};"></div>
               </div>
               <div flex>
-                <div class="card-album-title">{{selectedAlbum.album}}</div>
-                <div class="card-album-artist">{{selectedAlbum.artist}}</div>
+                <div class="card-effect-title">{{selectedEffect.effect}}</div>
+                <div class="card-cause-artist">{{selectedEffect.cause}}</div>
                 <div>
-                  <p height="50px"></p>
-                  <span>
-Over 100 million tonnes of food are wasted annually in the EU (2014 estimate). If nothing is done, food waste is expected to rise to about 126 million tonnes by 2020.
+                  <p height="20px"></p>
+                  <span>Over 100 million tonnes of food are wasted annually in the EU (2014 estimate). If nothing is done, food waste is expected to rise to about 126 million tonnes by 2020.
 Wasting food is not only an ethical and economic issue but it also depletes the environment of limited natural resources.
 All actors in the food chain have a role to play in preventing and reducing food waste, from those who produce and process foods (farmers, food manufacturers and processors) to those who make foods available for consumption (hospitality sector, retailers) and ultimately consumers themselves
 The central goal of EU food safety policy is to protect both human and animal health. We cannot compromise on these standards but, in co-operation with Member States and stakeholders, are looking for every opportunity to prevent food waste and strengthen sustainability of the food system.
-This website provides information on EU actions to tackle food waste, a repository of good practices in food waste prevention, communications materials to help raise awareness and a food waste resources library.
+</span>
 <p>Font: <a href="http://ec.europa.eu/food/safety/food_waste/index_en.htm">European Commission</a></p>
 </div>
-
               </div>
             </div>
           </div>
@@ -166,25 +162,25 @@ This website provides information on EU actions to tackle food waste, a reposito
     </core-animated-pages>
 
   </template>
-
   <script>
 
     Polymer('poor-world', {
 
       page: 0,
 
+	  //artist = cause, album = effect, selectedAlbum = selectedEffect
       items: [
-        { artist: 'Excessive resources', album: 'Malnutrition', color: '#967117' },
-        { artist: 'No access to safe water', album: 'Water', color: '#2F4F4F' },
-        { artist: 'Health & education', album: 'Vaccinations', color: '#CADABA' },
-        { artist: 'Rich vs poor', album: 'Inequality', color: '#465945' }
+        { cause: 'Lack of food', effect: 'Malnutrition', color: '#967117' },
+        { cause: 'No access to safe water', effect: 'Water', color: '#2F4F4F' },
+        { cause: 'Health & education', effect: 'Vaccinations', color: '#CADABA' },
+        { cause: 'Poverty vs richness', effect: 'Inequality', color: '#465945' }
       ],
 
       selectedAlbum: null,
 
       transition: function(e) {
         if (this.page === 0 && e.target.templateInstance.model.item) {
-          this.selectedAlbum = e.target.templateInstance.model.item;
+          this.selectedEffect = e.target.templateInstance.model.item;
           this.page = 1;
         } else {
           this.page = 0;
@@ -198,6 +194,5 @@ This website provides information on EU actions to tackle food waste, a reposito
   <div class="gray"><img class="back" onclick="window.history.back();" src="http://aissatechnologies.com/gedinc/img/back.png" /></div>
 
   <poor-world></poor-world>
-
 </body>
 </html>
