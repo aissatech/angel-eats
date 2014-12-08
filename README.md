@@ -11,6 +11,10 @@ https://uakk44f05490.aissatech.koding.io & https://koding-hack.firebaseapp.com/
 
 Firebase, Angular & Angular Fire, Polymer (Material Design).
 
+##Team
+
+https://github.com/koding/global.hackathon/blob/master/Teams/Angel%20Eats/ABOUT.md
+
 ==========
 
 More than a file is an attempt, more than a lib is useless
